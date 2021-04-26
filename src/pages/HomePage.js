@@ -67,11 +67,33 @@ export default function HomePage(props) {
             data-version="v1"
           />
         </Grid>
+        <Grid container item xs={12}>
+            <Grid item xs={12} style={{textAlign: 'center'}}>
+              <Typography
+                variant="h2"
+                gutterBottom
+              >
+                Projects
+              </Typography>
+            </Grid>
+            <Grid item xs={12} style={{textAlign: 'center'}}>
+              <Link 
+                href="https://github.com/paiqu/V-Gifts"
+                target="_blank"
+                style={{
+                  textDecorationColor: "#f0f0f0"
+                }}
+              >
+                <Typography variant='h3'>V-Gifts</Typography>
+              </Link>
+            </Grid>
+        </Grid>
         <Grid container item xs={12} alignItems="center" justify='center'>
-          <Grid item xs={3}>
+          <Grid item xs={1}>
             <Link
               href={`https://www.instagram.com/pai__q/`}
               target="_blank"
+              rel="noopener"
             >
               <img
                 src="./img/icon/instagram-icon.png"
