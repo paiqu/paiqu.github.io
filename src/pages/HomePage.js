@@ -38,28 +38,49 @@ export default function HomePage(props) {
 
   return (
     <div className={classes.root}>
-      <Grid className={classes.grid} container spacing={1}>
+      <Grid 
+        className={classes.grid} 
+        container spacing={1}
+      >
         <Grid item xs={12} style={{textAlign: 'center'}}>
           <Typography variant="h1" className={classes.title}>
             Pai Qu
           </Typography>
         </Grid>
-        <Grid container item xs={12}>
-          <div  
-            className="badge-base LI-profile-badge" 
-            data-locale="en_US" 
-            data-size="medium" 
-            data-theme="light" 
-            data-type="HORIZONTAL" 
-            data-vanity="paiqu" 
+        <Grid
+          container
+          item xs={12} 
+          alignItems='center'
+          style={{
+            display: "flex",
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
+        >
+          <div
+            className="badge-base LI-profile-badge"
+            data-locale="en_US"
+            data-size="medium"
+            data-theme="light"
+            data-type="HORIZONTAL"
+            data-vanity="paiqu"
             data-version="v1"
           />
-          <Avatar 
-            src="./img/icon/instagram-icon.jpeg"
-            component={Link}
-            href={`https://www.instagram.com/pai__q/`}
-            target="_blank"
-          />
+        </Grid>
+        <Grid container item xs={12} alignItems="center" justify='center'>
+          <Grid item xs={3}>
+            <Link
+              href={`https://www.instagram.com/pai__q/`}
+              target="_blank"
+            >
+              <img
+                src="./img/icon/instagram-icon.png"
+                style={{
+                  width: "100%",
+                }}
+              />
+            </Link>
+          </Grid>
         </Grid>
       </Grid>
     </div>
