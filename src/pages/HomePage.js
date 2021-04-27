@@ -1,12 +1,8 @@
 import React from 'react';
-import { Link as RouterLink } from 'react-router-dom';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import Link from "@material-ui/core/Link";
 import Box from '@material-ui/core/Box';
-
 import Navbar from '../components/Navbar';
 
 const background = "https://images.unsplash.com/photo-1551554781-c46200ea959d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2100&q=80";

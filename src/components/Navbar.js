@@ -3,10 +3,8 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
 import Link from "@material-ui/core/Link";
 import Grid from '@material-ui/core/Grid';
-import GitHubIcon from '@material-ui/icons/GitHub';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -34,7 +32,10 @@ export default function Navbar(props) {
 
   return (
     <div className={classes.root}>
-      <AppBar className={classes.appBar} position='static' color='transparent'>
+      <AppBar 
+        className={classes.appBar} 
+        color='transparent'
+      >
         <Toolbar>
           <Grid
             container
@@ -43,7 +44,7 @@ export default function Navbar(props) {
             <Grid item xs={6}>
               <Typography
                 className={classes.logo}
-                variant="h1"
+                variant="h3"
               >
                 Pai
               </Typography>
@@ -53,15 +54,13 @@ export default function Navbar(props) {
               item 
               spacing={1} 
               xs={6} 
-              alignItems='center'
-              // justify='space-between'
-              justify='flex-end'
+              alignItems='flex-end'
+              justify='space-between'
             >
-              <Grid item xs={12} sm={3}>
+              <Grid item xs={12} sm={3} style={{textAlign: 'center'}}>
                 <Link
                   variant='h5'
                   href='/'
-                  target="_blank"
                   color='textPrimary'
                   style={{
                     textUnderlinePosition: 'under',
@@ -71,12 +70,13 @@ export default function Navbar(props) {
                   Home
                 </Link>
               </Grid>
-              <Grid item xs={12} sm={3}>
+              <Grid item xs={12} sm={3} style={{textAlign: 'center'}}>
                 <Link
                   variant='h5'
                   href='https://github.com/paiqu'
                   target="_blank"
                   color='textPrimary'
+                  align='start'
                   style={{
                     textUnderlinePosition: 'under',
                     textDecorationColor: theme.palette.secondary.main,
@@ -85,10 +85,10 @@ export default function Navbar(props) {
                   My Github
                 </Link>
               </Grid>
-              <Grid item xs={12} sm={3}>
+              <Grid item xs={12} sm={3} style={{textAlign: 'center'}}>
                 <Link
                   variant='h5'
-                  href='/'
+                  href='/about'
                   color='textPrimary'
                   style={{
                     textUnderlinePosition: 'under',
@@ -98,7 +98,7 @@ export default function Navbar(props) {
                   About Me
                 </Link>
               </Grid>
-              <Grid item xs={12} sm={3}>
+              <Grid item xs={12} sm={3} style={{textAlign: 'center'}}>
                 <Link
                   variant='h5'
                   href='/'

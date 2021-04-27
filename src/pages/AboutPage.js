@@ -1,12 +1,32 @@
+import React from 'react';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
+import Navbar from '../components/Navbar';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+import Toolbar from '@material-ui/core/Toolbar';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+
+  },
+}));
 
 export default function AboutPage(props) {
+  const classes = useStyles();
+  const theme = useTheme();
+
   return (
-    <div>
-      <h1>Hello. It is About PAGE!</h1>
-      <Link to="/">
-        Back to Home Page
-      </Link>
+    <div className={classes.root}>
+      <Navbar />
+      <Grid container>
+        <Toolbar />
+        <Grid item xs={12}>
+          <Typography variant='h3' align='center'>
+            About Me
+          </Typography>
+        </Grid>
+      </Grid>
     </div>
   )
 }
