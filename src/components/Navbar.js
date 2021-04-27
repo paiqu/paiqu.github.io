@@ -6,12 +6,13 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Link from "@material-ui/core/Link";
 import Grid from '@material-ui/core/Grid';
-
+import GitHubIcon from '@material-ui/icons/GitHub';
 
 
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
+    height: '10vh',
   },
   appBar: {
     boxShadow: 'none',
@@ -51,38 +52,64 @@ export default function Navbar(props) {
               container 
               item 
               spacing={1} 
-              xs={4} 
+              xs={6} 
               alignItems='center'
+              // justify='space-between'
+              justify='flex-end'
             >
-              <Grid item xs={12} sm={6}>
-                <Button
-                  variant='outlined'
-                  component={Link}
-                  color='secondary'
-                  href='https://github.com/paiqu'
+              <Grid item xs={12} sm={3}>
+                <Link
+                  variant='h5'
+                  href='/'
                   target="_blank"
-                  rel="noopener"
+                  color='textPrimary'
                   style={{
-                    textDecoration: 'none',
-                    color: theme.palette.secondary.main,
-                    marginRight: theme.spacing(1),
-                    width: '100%',
-                    whiteSpace: 'nowrap',
+                    textUnderlinePosition: 'under',
+                    textDecorationColor: theme.palette.secondary.main,
                   }}
                 >
-                  My GitHub
-                </Button>
+                  Home
+                </Link>
               </Grid>
-              <Grid item xs={12} sm={6}>
-                <Button
-                  variant='contained'
-                  color='secondary'
+              <Grid item xs={12} sm={3}>
+                <Link
+                  variant='h5'
+                  href='https://github.com/paiqu'
+                  target="_blank"
+                  color='textPrimary'
                   style={{
-                    width: '100%',
+                    textUnderlinePosition: 'under',
+                    textDecorationColor: theme.palette.secondary.main,
+                  }}
+                >
+                  My Github
+                </Link>
+              </Grid>
+              <Grid item xs={12} sm={3}>
+                <Link
+                  variant='h5'
+                  href='/'
+                  color='textPrimary'
+                  style={{
+                    textUnderlinePosition: 'under',
+                    textDecorationColor: theme.palette.secondary.main,
+                  }}
+                >
+                  About Me
+                </Link>
+              </Grid>
+              <Grid item xs={12} sm={3}>
+                <Link
+                  variant='h5'
+                  href='/'
+                  color='textPrimary'
+                  style={{
+                    textUnderlinePosition: 'under',
+                    textDecorationColor: theme.palette.secondary.main,
                   }}
                 >
                   Login
-                </Button>
+                </Link>
               </Grid>
             </Grid>
           </Grid>

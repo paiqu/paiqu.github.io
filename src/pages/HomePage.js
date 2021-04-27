@@ -45,11 +45,6 @@ export default function HomePage(props) {
         className={classes.grid} 
         container spacing={1}
       >
-        {/* <Grid item xs={12} >
-          <Typography variant="h3" style={{textAlign: 'center'}}>
-            Hello, I'm Pai Q.
-          </Typography>
-        </Grid> */}
         <Grid item xs={12} 
           style={{
             display: "flex",
@@ -67,69 +62,6 @@ export default function HomePage(props) {
               Coming soon
             </Typography>
           </Box>
-        </Grid>
-        {/* <Grid container item xs={12} >
-            <Grid item xs={12} style={{textAlign: 'center'}}>
-              <Typography
-                variant="h4"
-                gutterBottom
-              >
-                Projects
-              </Typography>
-            </Grid>
-            <Grid item xs={12} style={{textAlign: 'center'}}>
-              <Typography
-                variant='h5'
-                color={theme.palette.primary.contrastText}
-                component={Link}
-                href="https://github.com/paiqu/V-Gifts"
-                target="_blank"
-                style={{
-                  textDecorationColor: theme.palette.secondary.main,
-                  color: theme.palette.primary.contrastText,
-                }}
-              >
-                V-Gifts
-              </Typography>
-            </Grid>
-        </Grid> */}
-        <Grid container item xs={12} alignItems="center" justify='flex-end' spacing={1}
-          style={{
-            position: 'fixed',
-            bottom: 0,
-            left: 0,
-          }}
-        >
-          <Grid item xs={1}>
-            <Link
-              href={`https://www.instagram.com/pai__q/`}
-              target="_blank"
-              rel="noopener"
-            >
-              <img
-                src="./img/icon/instagram-icon.svg"
-                style={{
-                  width: '100%',
-                  maxWidth: "5rem",
-                }}
-              />
-            </Link>
-          </Grid>
-          <Grid item xs={1}>
-            <Link
-              href={`https://www.linkedin.com/in/paiqu/`}
-              target="_blank"
-              rel="noopener"
-            >
-              <img
-                src="./img/icon/linkedin-icon.png"
-                style={{
-                  width: '100%',
-                  maxWidth: "5rem",
-                }}
-              />
-            </Link>
-          </Grid>
         </Grid>
       </Grid>
     </div>
