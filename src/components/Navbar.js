@@ -37,82 +37,65 @@ export default function Navbar(props) {
         color='transparent'
       >
         <Toolbar>
-          <Grid
-            container
-            justify='space-between'
+          <Link
+            className={classes.logo}
+            variant='h3'
+            href='/'
+            color='textPrimary'
           >
-            <Grid item xs={6}>
-              <Typography
-                className={classes.logo}
-                variant="h3"
-              >
-                Pai
-              </Typography>
-            </Grid>
-            <Grid 
-              container 
-              item 
-              spacing={1} 
-              xs={6} 
-              alignItems='flex-end'
-              justify='space-between'
-            >
-              <Grid item xs={12} sm={3} style={{textAlign: 'center'}}>
-                <Link
-                  variant='h5'
-                  href='/'
-                  color='textPrimary'
-                  style={{
-                    textUnderlinePosition: 'under',
-                    textDecorationColor: theme.palette.secondary.main,
-                  }}
-                >
-                  Home
-                </Link>
-              </Grid>
-              <Grid item xs={12} sm={3} style={{textAlign: 'center'}}>
-                <Link
-                  variant='h5'
-                  href='https://github.com/paiqu'
-                  target="_blank"
-                  color='textPrimary'
-                  align='start'
-                  style={{
-                    textUnderlinePosition: 'under',
-                    textDecorationColor: theme.palette.secondary.main,
-                  }}
-                >
-                  My Github
-                </Link>
-              </Grid>
-              <Grid item xs={12} sm={3} style={{textAlign: 'center'}}>
-                <Link
-                  variant='h5'
-                  href='/about'
-                  color='textPrimary'
-                  style={{
-                    textUnderlinePosition: 'under',
-                    textDecorationColor: theme.palette.secondary.main,
-                  }}
-                >
-                  About Me
-                </Link>
-              </Grid>
-              <Grid item xs={12} sm={3} style={{textAlign: 'center'}}>
-                <Link
-                  variant='h5'
-                  href='/'
-                  color='textPrimary'
-                  style={{
-                    textUnderlinePosition: 'under',
-                    textDecorationColor: theme.palette.secondary.main,
-                  }}
-                >
-                  Login
-                </Link>
-              </Grid>
-            </Grid>
-          </Grid>
+            Pai
+          </Link>
+          <div className={classes.grow} />
+          <Link
+            variant='h5'
+            href='/'
+            color='textPrimary'
+            style={{
+              textUnderlinePosition: 'under',
+              textDecorationColor: theme.palette.secondary.main,
+              margin: '1rem',
+            }}
+          >
+            Home
+          </Link>
+          <Link
+            variant='h5'
+            href='https://github.com/paiqu'
+            target="_blank"
+            color='textPrimary'
+            align='start'
+            style={{
+              textUnderlinePosition: 'under',
+              textDecorationColor: theme.palette.secondary.main,
+              margin: '1rem',
+            }}
+          >
+            My Github
+          </Link>
+          <Link
+            variant='h5'
+            href='/about'
+            color='textPrimary'
+            style={{
+              textUnderlinePosition: 'under',
+              textDecorationColor: theme.palette.secondary.main,
+              margin: '1rem',
+            }}
+          >
+            About Me
+          </Link>
+          <Link
+            variant='h5'
+            href='/'
+            color='textPrimary'
+            style={{
+              textUnderlinePosition: 'under',
+              textDecorationColor: theme.palette.secondary.main,
+              margin: '1rem',
+            }}
+          >
+            Login
+          </Link>
         </Toolbar>
       </AppBar>
     </div>
