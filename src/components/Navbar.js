@@ -85,9 +85,10 @@ export default function Navbar(props) {
         >
           <MenuItem>My Github</MenuItem>
         </Link>
-        <RouterLink
+        <Link
           key='about-me'
           variant='h5'
+          component={RouterLink}
           to='/about'
           color='textPrimary'
           style={{
@@ -96,7 +97,7 @@ export default function Navbar(props) {
           }}
         >
           <MenuItem>About Me</MenuItem>
-        </RouterLink>
+        </Link>
         <Link
           key='login'
           variant='h5'
@@ -151,8 +152,9 @@ export default function Navbar(props) {
         >
           My Github
         </Link>
-        <RouterLink
+        <Link
           variant='h5'
+          component={RouterLink}
           to='/about'
           color='textPrimary'
           style={{
@@ -162,7 +164,7 @@ export default function Navbar(props) {
           }}
         >
           About Me
-        </RouterLink>
+        </Link>
         <Link
           variant='h5'
           href='/'
