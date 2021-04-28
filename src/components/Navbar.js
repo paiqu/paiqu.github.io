@@ -3,6 +3,7 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
+import { Link as RouterLink } from 'react-router-dom';
 import Link from "@material-ui/core/Link";
 import Grid from '@material-ui/core/Grid';
 import IconButton from '@material-ui/core/IconButton';
@@ -84,10 +85,10 @@ export default function Navbar(props) {
         >
           <MenuItem>My Github</MenuItem>
         </Link>
-        <Link
+        <RouterLink
           key='about-me'
           variant='h5'
-          href='/about'
+          to='/about'
           color='textPrimary'
           style={{
             textUnderlinePosition: 'under',
@@ -95,7 +96,7 @@ export default function Navbar(props) {
           }}
         >
           <MenuItem>About Me</MenuItem>
-        </Link>
+        </RouterLink>
         <Link
           key='login'
           variant='h5'
@@ -150,9 +151,9 @@ export default function Navbar(props) {
         >
           My Github
         </Link>
-        <Link
+        <RouterLink
           variant='h5'
-          href='/about'
+          to='/about'
           color='textPrimary'
           style={{
             textUnderlinePosition: 'under',
@@ -161,7 +162,7 @@ export default function Navbar(props) {
           }}
         >
           About Me
-        </Link>
+        </RouterLink>
         <Link
           variant='h5'
           href='/'
