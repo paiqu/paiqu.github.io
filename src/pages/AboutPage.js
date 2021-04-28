@@ -25,6 +25,9 @@ export default function AboutPage(props) {
           <Typography variant='h3' align='center'>
             About Me
           </Typography>
+          <Typography variant='body1' align='center'>
+            Hello, my name is Pai.
+          </Typography>
         </Grid>
       </Grid>
     </div>
