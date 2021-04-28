@@ -3,6 +3,7 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
+import { Link as RouterLink } from 'react-router-dom';
 import Link from "@material-ui/core/Link";
 import Grid from '@material-ui/core/Grid';
 import IconButton from '@material-ui/core/IconButton';
@@ -87,7 +88,8 @@ export default function Navbar(props) {
         <Link
           key='about-me'
           variant='h5'
-          href='/about'
+          component={RouterLink}
+          to='/about'
           color='textPrimary'
           style={{
             textUnderlinePosition: 'under',
@@ -152,7 +154,8 @@ export default function Navbar(props) {
         </Link>
         <Link
           variant='h5'
-          href='/about'
+          component={RouterLink}
+          to='/about'
           color='textPrimary'
           style={{
             textUnderlinePosition: 'under',
