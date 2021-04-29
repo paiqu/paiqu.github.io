@@ -13,9 +13,21 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ProfilePage(props) {
+export default function ProfilePage({setAuthDetails, ...props}) {
   const classes = useStyles();
   const theme = useTheme();
+
+  const handleLogout = () => {
+    firebase.auth().signOut().then(() => {
+      // Sign-out successful.
+      setAuthDetails({
+        authenticated: false,
+      });
+    }).catch((error) => {
+      // An error happened.
+      console.log(error);
+    });
+  };
 
   return (
     <div className={classes.root}>
@@ -32,6 +44,14 @@ export default function ProfilePage(props) {
         to='/'
       >
         Home
+      </Button>
+      <Button 
+        variant='outlined' 
+        color='secondary'
+        component={RouterLink}
+        to='/'
+      >
+        Log out
       </Button>
 
     </div>
