@@ -39,6 +39,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Navbar(props) {
   const classes = useStyles();
   const theme = useTheme();
+  const textColor = theme.palette.primary.contrastText;
 
   const [state, setState] = useState({
     mobileView: false,
@@ -63,7 +64,7 @@ export default function Navbar(props) {
           key='home'
           variant='h5'
           href='/'
-          color='textPrimary'
+          color={'textPrimary'}
           style={{
             textUnderlinePosition: 'under',
             textDecorationColor: theme.palette.secondary.main,
@@ -76,7 +77,7 @@ export default function Navbar(props) {
           variant='h5'
           href='https://github.com/paiqu'
           target="_blank"
-          color='textPrimary'
+          color={'textPrimary'}
           align='start'
           style={{
             textUnderlinePosition: 'under',
@@ -90,7 +91,7 @@ export default function Navbar(props) {
           variant='h5'
           component={RouterLink}
           to='/about'
-          color='textPrimary'
+          color={'textPrimary'}
           style={{
             textUnderlinePosition: 'under',
             textDecorationColor: theme.palette.secondary.main,
@@ -103,7 +104,7 @@ export default function Navbar(props) {
           variant='h5'
           component={RouterLink}
           to='/login'
-          color='textPrimary'
+          color={'textPrimary'}
           style={{
             textUnderlinePosition: 'under',
             textDecorationColor: theme.palette.secondary.main,
@@ -122,7 +123,7 @@ export default function Navbar(props) {
           className={classes.logo}
           variant='h3'
           href='/'
-          color='textPrimary'
+          color={'textPrimary'}
         >
           Pai
         </Link>
@@ -130,7 +131,7 @@ export default function Navbar(props) {
         <Link
           variant='h5'
           href='/'
-          color='textPrimary'
+          color={'textPrimary'}
           style={{
             textUnderlinePosition: 'under',
             textDecorationColor: theme.palette.secondary.main,
@@ -143,7 +144,7 @@ export default function Navbar(props) {
           variant='h5'
           href='https://github.com/paiqu'
           target="_blank"
-          color='textPrimary'
+          color={'textPrimary'}
           align='start'
           style={{
             textUnderlinePosition: 'under',
@@ -157,7 +158,7 @@ export default function Navbar(props) {
           variant='h5'
           component={RouterLink}
           to='/about'
-          color='textPrimary'
+          color={'textPrimary'}
           style={{
             textUnderlinePosition: 'under',
             textDecorationColor: theme.palette.secondary.main,
@@ -170,7 +171,7 @@ export default function Navbar(props) {
           variant='h5'
           component={RouterLink}
           to='/login'
-          color='textPrimary'
+          color={'textPrimary'}
           style={{
             textUnderlinePosition: 'under',
             textDecorationColor: theme.palette.secondary.main,
@@ -216,7 +217,7 @@ export default function Navbar(props) {
             className={classes.logo}
             variant='h3'
             href='/'
-            color='textPrimary'
+            color={'textPrimary'}
           >
             Pai
         </Link>
