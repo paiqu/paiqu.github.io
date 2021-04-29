@@ -6,6 +6,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Toolbar from '@material-ui/core/Toolbar';
 
+
 const useStyles = makeStyles((theme) => ({
   root: {
 
@@ -15,6 +16,7 @@ const useStyles = makeStyles((theme) => ({
 export default function AboutPage(props) {
   const classes = useStyles();
   const theme = useTheme();
+
 
   return (
     <div className={classes.root}>

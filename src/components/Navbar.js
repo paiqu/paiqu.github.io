@@ -101,7 +101,8 @@ export default function Navbar(props) {
         <Link
           key='login'
           variant='h5'
-          href='/'
+          component={RouterLink}
+          to='/login'
           color='textPrimary'
           style={{
             textUnderlinePosition: 'under',
@@ -167,7 +168,8 @@ export default function Navbar(props) {
         </Link>
         <Link
           variant='h5'
-          href='/'
+          component={RouterLink}
+          to='/login'
           color='textPrimary'
           style={{
             textUnderlinePosition: 'under',
