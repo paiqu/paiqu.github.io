@@ -29,6 +29,8 @@ export default function LoginPage({setAuthDetails, ...props}) {
     password: "",
   });
 
+  const [error, setError] = useState("");
+
   const handleChange = name => event => {
     setInfos({
       ...infos,
@@ -36,7 +38,9 @@ export default function LoginPage({setAuthDetails, ...props}) {
     });
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
     firebase.auth().signInWithEmailAndPassword(infos.email, infos.password)
     .then((userCredential) => {
       setAuthDetails({
@@ -46,8 +50,17 @@ export default function LoginPage({setAuthDetails, ...props}) {
       history.push('/profile');
     })
     .catch((error) => {
+      // Handle Errors here.
       var errorCode = error.code;
       var errorMessage = error.message;
+      setError(errorMessage);
+
+      if (errorCode === 'auth/wrong-password') {
+        alert('Wrong password.');
+      } else {
+        alert(errorMessage);
+      }
+
 
       console.log(error);
     });
@@ -70,27 +83,37 @@ export default function LoginPage({setAuthDetails, ...props}) {
       >
         Home
       </Button>
-      <TextField 
-        variant="outlined"
-        color='secondary'
-        label="email"
-        type="email"
-        onChange={handleChange('email')}
-      />
-      <TextField 
-        variant="outlined"
-        color='secondary'
-        label="password"
-        type="password"
-        onChange={handleChange('password')}
-      />
-      <Button 
-        variant="contained"
-        color="secondary"
-        onClick={handleSubmit}
+      <form onSubmit={handleSubmit}
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+        }}
       >
-        Log in
-      </Button>
+        <TextField
+          required
+          variant="outlined"
+          color='secondary'
+          label="email"
+          type="email"
+          onChange={handleChange('email')}
+        />
+        <TextField
+          required
+          variant="outlined"
+          color='secondary'
+          label="password"
+          type="password"
+          onChange={handleChange('password')}
+        />
+        <Button
+          type="submit"
+          variant="contained"
+          color="secondary"
+        >
+          Log in
+        </Button>
+      </form>
     </div>
   );
 }
