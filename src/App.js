@@ -17,15 +17,15 @@ import ProfilePage from './pages/ProfilePage';
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: '#fafafa',
-      light: '#ffffff',
-      dark: '#c7c7c7',
-      contrastText: '#000000',
+      main: '#0d47a1',
+      light: '#5472d3',
+      dark: '#002171',
+      contrastText: '#f0f0f0',
     },
     secondary: {
-      main: '#d50000',
-      light: '#ff5131',
-      dark: '#9b0000',
+      main: '#a1670d',
+      light: '#d69540',
+      dark: '#6e3c00',
       contrastText: '#ffffff',
     },
   },

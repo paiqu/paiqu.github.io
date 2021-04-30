@@ -15,6 +15,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
     height: '10vh',
+    backgroundColor: theme.palette.primary.main,
   },
   appBar: {
     boxShadow: 'none',
@@ -32,6 +33,14 @@ const useStyles = makeStyles((theme) => ({
   },
   drawerContainer: {
     padding: "20px 30px",
+  },
+  link: {
+    color: theme.palette.primary.contrastText,
+    margin: theme.spacing(2),
+    "&:hover": {
+      textUnderlinePosition: 'under',
+      textDecorationColor: theme.palette.secondary.main,  
+    },
   }
 }));
 
@@ -63,8 +72,8 @@ export default function Navbar(props) {
         <Link
           key='home'
           variant='h5'
-          href='/'
-          color={'textPrimary'}
+          component={RouterLink}
+          to='/'
           style={{
             textUnderlinePosition: 'under',
             textDecorationColor: theme.palette.secondary.main,
@@ -122,61 +131,41 @@ export default function Navbar(props) {
         <Link
           className={classes.logo}
           variant='h3'
-          href='/'
-          color={'textPrimary'}
+          component={RouterLink}
+          to='/'
         >
           Pai
         </Link>
         <div className={classes.grow} />
         <Link
+          className={classes.link}
           variant='h5'
-          href='/'
-          color={'textPrimary'}
-          style={{
-            textUnderlinePosition: 'under',
-            textDecorationColor: theme.palette.secondary.main,
-            margin: '1rem',
-          }}
+          component={RouterLink}
+          to='/'
         >
           Home
         </Link>
         <Link
+          className={classes.link}
           variant='h5'
           href='https://github.com/paiqu'
           target="_blank"
-          color={'textPrimary'}
-          align='start'
-          style={{
-            textUnderlinePosition: 'under',
-            textDecorationColor: theme.palette.secondary.main,
-            margin: '1rem',
-          }}
         >
           My Github
         </Link>
         <Link
+          className={classes.link}
           variant='h5'
           component={RouterLink}
           to='/about'
-          color={'textPrimary'}
-          style={{
-            textUnderlinePosition: 'under',
-            textDecorationColor: theme.palette.secondary.main,
-            margin: '1rem',
-          }}
         >
           About Me
         </Link>
         <Link
+          className={classes.link}
           variant='h5'
           component={RouterLink}
           to='/login'
-          color={'textPrimary'}
-          style={{
-            textUnderlinePosition: 'under',
-            textDecorationColor: theme.palette.secondary.main,
-            margin: '1rem',
-          }}
         >
           Login
         </Link>
