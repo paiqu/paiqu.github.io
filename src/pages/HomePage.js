@@ -54,7 +54,11 @@ export default function HomePage(props) {
             color={theme.palette.secondary.main}
             p={2}
           >
-            <Typography variant="h2">
+            <Typography variant="h3"
+              style={{
+                color: theme.palette.primary.contrastText,
+              }}
+            >
               Coming soon
             </Typography>
           </Box>
