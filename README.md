@@ -1,2 +1,2 @@
-# paiqu.github.io
-https://paiqu.github.io/
+# paiqu.me
+https://paiqu.me/
