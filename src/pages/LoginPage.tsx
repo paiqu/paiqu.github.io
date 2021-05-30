@@ -7,7 +7,8 @@ import firebase from '../firebase';
 
 // Material UI
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
+import { Button } from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
 import Link from "@material-ui/core/Link";
 import Dialog from '@material-ui/core/Dialog';
@@ -16,8 +17,11 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
+// Formik
+import { Formik, Form, FormikProps } from 'formik';
+import * as Yup from 'yup';
+
 // Components
-import LoginForm from '../components/auth/LoginForm';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -30,37 +34,42 @@ const useStyles = makeStyles((theme) => ({
 
 interface Props {
     setAuth: (auth: Boolean) => void;
-}
+};
+
+interface ILoginForm {
+    email: string,
+    password: string
+};
 
 export default function LoginPage({ setAuth }: Props) {
   const classes = useStyles();
   const theme = useTheme();
   const history = useHistory();
   
-  const [infos, setInfos] = useState({
-    email: "",
-    password: "",
-  });
+//   const [infos, setInfos] = useState({
+//     email: "",
+//     password: "",
+//   });
 
   const [dialogState, setDialogState] = useState({
     open: false,
     email: "",
   })
 
-  const handleChange = (name: string, event: React.ChangeEvent<{ value: unknown }>) => {
-    setInfos({
-      ...infos,
-      [name]: event.target.value,
-    });
-  };
+//   const handleChange = (name: string, event: React.ChangeEvent<{ value: unknown }>) => {
+//     setInfos({
+//       ...infos,
+//       [name]: event.target.value,
+//     });
+//   };
 
-  const handleSubmit = (event: React.FormEvent) => {
-    event.preventDefault();
+  // const handleSubmit = (event: React.FormEvent) => {
+  const handleSubmit = (values: ILoginForm) => {
+    // event.preventDefault();
 
-    firebase.auth().signInWithEmailAndPassword(infos.email, infos.password)
+    firebase.auth().signInWithEmailAndPassword(values.email, values.password)
     .then((userCredential) => {
 			setAuth(true); // update user's login status
-    
       history.push('/profile');
     })
     .catch((error) => {
@@ -128,42 +137,70 @@ export default function LoginPage({ setAuth }: Props) {
       >
         Home
       </Button>
-      <form onSubmit={handleSubmit}
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
+      <Formik
+        initialValues={{
+            email: '',
+            password: '',
         }}
+        onSubmit={(values: ILoginForm) => {
+            handleSubmit(values);
+        }}
+        validationSchema={Yup.object().shape({
+            email: Yup.string()
+                .email()
+                .required('Enter valid email')
+        })}
       >
-        <TextField
-          required
-          variant="outlined"
-          color='secondary'
-          label="email"
-          type="email"
-          onChange={(event: React.ChangeEvent<{ value: unknown }>) => handleChange('email', event)}
-        />
-        <TextField
-          required
-          variant="outlined"
-          color='secondary'
-          label="password"
-          type="password"
-          onChange={(event: React.ChangeEvent<{ value: unknown }>) => handleChange('password', event)}
-        />
-        <Link
-          onClick={handleDialogOpen}
-        >
-          Forgot Your Password?
-        </Link>
-        <Button
-          type="submit"
-          variant="contained"
-          color="secondary"
-        >
-          Log in
-        </Button>
-      </form>
+        {(props: FormikProps<ILoginForm>) => {
+            const {
+                values,
+                touched,
+                errors,
+                handleBlur,
+                handleChange,
+                isSubmitting,
+            } = props
+            return (
+                <Form>
+                    <TextField
+                        required
+                        name='email'
+                        id='email'
+                        value={values.email}
+                        type="email"
+                        variant="outlined"
+                        color='secondary'
+                        label="email"
+                        onChange={handleChange}
+                        // onChange={(event: React.ChangeEvent<{ value: unknown }>) => handleChange('email', event)}
+                    />
+                    <TextField
+                        name='password'
+                        id='password'
+                        label="password"
+                        value={values.password}
+                        type="password"
+                        variant="outlined"
+                        color='secondary'
+                        onChange={handleChange}
+                        // onChange={(event: React.ChangeEvent<{ value: unknown }>) => handleChange('password', event)}
+                    />
+                    <Link
+                        onClick={handleDialogOpen}
+                    >
+                        Forgot Your Password?
+                    </Link>
+                    <Button
+                        type="submit"
+                        variant="contained"
+                        color="secondary"
+                    >
+                        Log in
+                    </Button>
+                </Form>
+            );
+        }}
+      </Formik>
       <Dialog open={dialogState.open} onClose={handleDialogClose} aria-labelledby="form-dialog-title">
         <DialogTitle id="form-dialog-title">Forgot your password?</DialogTitle>
         <form onSubmit={handleForgotPassword}>
@@ -183,14 +220,17 @@ export default function LoginPage({ setAuth }: Props) {
             />
           </DialogContent>
           <DialogActions>
-            <Button onClick={handleDialogClose} color="primary">
+            <Button 
+                onClick={handleDialogClose} 
+                color="primary"
+            >
               Cancel
             </Button>
             <Button 
               type='submit' 
               // onClick={handleDialogClose} 
               color="primary"
-              vairant='contained'
+              // vairant='contained'
             >
               Submit
             </Button>
