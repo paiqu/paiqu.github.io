@@ -34,13 +34,16 @@ const theme = createMuiTheme({
 
 function App() {
 
-  const [authDetails, setAuthDetails] = useState({
-    authenticated: false,
-  });
+  // const [authDetails, setAuthDetails] = useState({
+  //   authenticated: false,
+  // });
+
+  const [authenticated, setAuth] = useState(false);
+
 
   return (
     <ThemeProvider theme={theme}>
-      <AuthProvider value={authDetails}>
+      <AuthProvider value={authenticated}>
         <Router>
           <Switch>
             <Route exact path="/" component={HomePage} />
@@ -49,14 +52,14 @@ function App() {
               exact 
               path="/login" 
               render={(props) => {
-                return <LoginPage {...props} setAuthDetails={setAuthDetails} />;
+                return <LoginPage {...props} setAuthDetails={setAuth} />;
               }}
             />
             <ProtectedRoute
               exact
               path="/profile"
               render={(props) => {
-                return <ProfilePage {...props} setAuthDetails={setAuthDetails} />;
+                return <ProfilePage {...props} setAuthDetails={setAuth} />;
               }}
             />
           </Switch>
