@@ -10,9 +10,6 @@ const background = "https://images.unsplash.com/photo-1551554781-c46200ea959d?ix
 const useStyles = makeStyles((theme) => ({
   root: {
     background: theme.palette.primary.main,
-    // background: `linear-gradient(to right,#25b7fa,#f8ce5a)`,
-    // background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
-    // backgroundImage: `url(${background})`,
     minHeight: '100%',
     minWidth: '100%',
     width: '100%',

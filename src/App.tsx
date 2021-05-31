@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import { createTheme, ThemeProvider } from '@material-ui/core/styles';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import ProtectedRoute from './components/route/ProtectedRoute';
 import { AuthProvider } from './context';
@@ -14,7 +14,7 @@ import LoginPage from './pages/LoginPage';
 import ProfilePage from './pages/ProfilePage';
 
 // https://material.io/resources/color/#!/?view.left=0&view.right=0&secondary.color=004cff&primary.color=FFB300
-const theme = createMuiTheme({
+const theme = createTheme({
   palette: {
     primary: {
       main: '#0d47a1',
@@ -33,17 +33,12 @@ const theme = createMuiTheme({
 
 
 function App() {
-
-  // const [authDetails, setAuthDetails] = useState({
-  //   authenticated: false,
-  // });
-
-  const [authenticated, setAuth] = useState(false);
+  const [authenticated, setAuth] = useState<boolean>(false);
 
 
   return (
     <ThemeProvider theme={theme}>
-      <AuthProvider value={authenticated}>
+      <AuthProvider value={{authenticated}}>
         <Router>
           <Switch>
             <Route exact path="/" component={HomePage} />
@@ -52,7 +47,7 @@ function App() {
               exact 
               path="/login" 
               render={(props) => {
-                return <LoginPage {...props} setAuthDetails={setAuth} />;
+                return <LoginPage {...props} setAuth={setAuth} />;
               }}
             />
             <ProtectedRoute

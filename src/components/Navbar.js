@@ -15,7 +15,8 @@ const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
     height: '10vh',
-    backgroundColor: theme.palette.primary.main,
+    // backgroundColor: theme.palette.primary.main,
+    backgroundColor: 'white',
   },
   appBar: {
     boxShadow: 'none',
@@ -86,7 +87,7 @@ export default function Navbar(props) {
           variant='h5'
           href='https://github.com/paiqu'
           target="_blank"
-          color={'textPrimary'}
+          color={'primary'}
           align='start'
           style={{
             textUnderlinePosition: 'under',

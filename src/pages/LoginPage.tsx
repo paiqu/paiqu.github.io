@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 interface Props {
-    setAuth: (auth: Boolean) => void;
+    setAuth: (auth: boolean) => void;
 };
 
 interface ILoginForm {
@@ -46,22 +46,12 @@ export default function LoginPage({ setAuth }: Props) {
   const theme = useTheme();
   const history = useHistory();
   
-//   const [infos, setInfos] = useState({
-//     email: "",
-//     password: "",
-//   });
 
   const [dialogState, setDialogState] = useState({
     open: false,
     email: "",
   })
 
-//   const handleChange = (name: string, event: React.ChangeEvent<{ value: unknown }>) => {
-//     setInfos({
-//       ...infos,
-//       [name]: event.target.value,
-//     });
-//   };
 
   // const handleSubmit = (event: React.FormEvent) => {
   const handleSubmit = (values: ILoginForm) => {
@@ -148,7 +138,9 @@ export default function LoginPage({ setAuth }: Props) {
         validationSchema={Yup.object().shape({
             email: Yup.string()
                 .email()
-                .required('Enter valid email')
+                .required('Enter valid email'),
+            password: Yup.string()
+                .required('Please enter your password to log in')
         })}
       >
         {(props: FormikProps<ILoginForm>) => {
@@ -163,7 +155,6 @@ export default function LoginPage({ setAuth }: Props) {
             return (
                 <Form>
                     <TextField
-                        required
                         name='email'
                         id='email'
                         value={values.email}
