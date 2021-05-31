@@ -30,6 +30,11 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     alignItems: 'center',
   },
+  form: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  }
 }));
 
 interface Props {
@@ -153,7 +158,7 @@ export default function LoginPage({ setAuth }: Props) {
                 isSubmitting,
             } = props
             return (
-                <Form>
+                <Form className={classes.form}>
                     <TextField
                         name='email'
                         id='email'

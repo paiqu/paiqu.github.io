@@ -13,14 +13,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ProfilePage({setAuthDetails, ...props}) {
+export default function ProfilePage({setAuth, ...props}) {
   const classes = useStyles();
   const theme = useTheme();
 
   const handleLogout = () => {
     firebase.auth().signOut().then(() => {
       // Sign-out successful.
-      setAuthDetails({
+      setAuth({
         authenticated: false,
       });
     }).catch((error) => {

@@ -54,7 +54,7 @@ function App() {
               exact
               path="/profile"
               render={(props) => {
-                return <ProfilePage {...props} setAuthDetails={setAuth} />;
+                return <ProfilePage {...props} setAuth={setAuth} />;
               }}
             />
           </Switch>
