@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
-import Navbar from '../components/Navbar';
+import Header from '../components/Header';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -20,7 +20,7 @@ export default function AboutPage(props) {
 
   return (
     <div className={classes.root}>
-      <Navbar />
+      <Header />
       <Grid container>
         <Toolbar />
         <Grid item xs={12}>

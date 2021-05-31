@@ -3,20 +3,20 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import Navbar from '../components/Navbar';
+import Header from '../components/Header';
 
 const background = "https://images.unsplash.com/photo-1551554781-c46200ea959d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2100&q=80";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     background: theme.palette.primary.main,
-    minHeight: '100%',
-    minWidth: '100%',
+    // minHeight: '100vh',
+    // minWidth: '100%',
     width: '100%',
-    height: 'auto',
+    height: '100%',
     position: 'fixed',
-    top: 0,
-    left: 0,
+    // top: 0,
+    // left: 0,
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -33,7 +33,7 @@ export default function HomePage(props) {
 
   return (
     <div className={classes.root}>
-      <Navbar />
+      <Header />
       <Grid 
         className={classes.grid} 
         container spacing={1}

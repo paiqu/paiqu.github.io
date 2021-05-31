@@ -1,20 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles, useTheme, Theme, createStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import { Link as RouterLink } from 'react-router-dom';
 import Link from "@material-ui/core/Link";
-import Grid from '@material-ui/core/Grid';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Drawer from '@material-ui/core/Drawer';
 import MenuItem from '@material-ui/core/MenuItem';
+import { CSSProperties } from '@material-ui/core/styles/experimentalStyled';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({  
   root: {
     width: '100%',
-    height: '10vh',
     // backgroundColor: theme.palette.primary.main,
     backgroundColor: 'white',
   },
@@ -25,8 +23,10 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   logo: {
-    color: theme.palette.primary.contrastText,
+    // color: theme.palette.primary.contrastText,
+    color: 'white',
     textDecoration: 'underline',
+    // textDecorationColor: theme.palette.secondary.main,
     textDecorationColor: theme.palette.secondary.main,
   },
   "@media (max-width: 900px)": {
@@ -36,7 +36,8 @@ const useStyles = makeStyles((theme) => ({
     padding: "20px 30px",
   },
   link: {
-    color: theme.palette.primary.contrastText,
+    // color: theme.palette.primary.contrastText,
+    color: 'white',
     margin: theme.spacing(2),
     "&:hover": {
       textUnderlinePosition: 'under',
@@ -45,11 +46,16 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
+interface HeaderProps {
 
-export default function Navbar(props) {
-  const classes = useStyles();
+};
+
+export default function Header(props: HeaderProps) {
   const theme = useTheme();
+  const classes = useStyles();
+
   const textColor = theme.palette.primary.contrastText;
+  console.log(textColor);
 
   const [state, setState] = useState({
     mobileView: false,
@@ -88,7 +94,7 @@ export default function Navbar(props) {
           href='https://github.com/paiqu'
           target="_blank"
           color={'primary'}
-          align='start'
+          // align='start'
           style={{
             textUnderlinePosition: 'under',
             textDecorationColor: theme.palette.secondary.main,
@@ -134,6 +140,7 @@ export default function Navbar(props) {
           variant='h3'
           component={RouterLink}
           to='/'
+          color='secondary'
         >
           Pai
         </Link>
@@ -143,6 +150,7 @@ export default function Navbar(props) {
           variant='h5'
           component={RouterLink}
           to='/'
+          color='secondary'
         >
           Home
         </Link>
@@ -151,6 +159,7 @@ export default function Navbar(props) {
           variant='h5'
           href='https://github.com/paiqu'
           target="_blank"
+          color='secondary'
         >
           My Github
         </Link>
@@ -159,6 +168,7 @@ export default function Navbar(props) {
           variant='h5'
           component={RouterLink}
           to='/about'
+          color='secondary'
         >
           About Me
         </Link>
@@ -167,6 +177,7 @@ export default function Navbar(props) {
           variant='h5'
           component={RouterLink}
           to='/login'
+          color='secondary'
         >
           Login
         </Link>
@@ -184,13 +195,11 @@ export default function Navbar(props) {
     return (
       <Toolbar>
         <IconButton
-          {...{
-            edge: "start",
-            color: theme.palette.primary.contrastText,
-            'aria-label': 'menu',
-            'aria-haspopup': "true",
-            onClick: handleDrawerOpen,
-          }}
+          edge='start'
+          onClick={handleDrawerOpen}
+          color='secondary'
+          aria-label='menu'
+          aria-aria-haspopup='true'
         >
           <MenuIcon />
         </IconButton>
