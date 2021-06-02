@@ -1,6 +1,5 @@
 import React from 'react';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';

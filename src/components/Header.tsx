@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { makeStyles, useTheme, Theme, createStyles } from '@material-ui/core/styles';
+import { makeStyles, useTheme, Theme, createStyles, withStyles, WithStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import { Link as RouterLink } from 'react-router-dom';
@@ -8,13 +8,11 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Drawer from '@material-ui/core/Drawer';
 import MenuItem from '@material-ui/core/MenuItem';
-import { CSSProperties } from '@material-ui/core/styles/experimentalStyled';
 
 const useStyles = makeStyles((theme: Theme) => ({  
   root: {
     width: '100%',
-    // backgroundColor: theme.palette.primary.main,
-    backgroundColor: 'white',
+    backgroundColor: theme.palette.primary.main,
   },
   appBar: {
     boxShadow: 'none',
@@ -26,7 +24,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     // color: theme.palette.primary.contrastText,
     color: 'white',
     textDecoration: 'underline',
-    // textDecorationColor: theme.palette.secondary.main,
     textDecorationColor: theme.palette.secondary.main,
   },
   "@media (max-width: 900px)": {
@@ -38,7 +35,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   link: {
     // color: theme.palette.primary.contrastText,
     color: 'white',
-    margin: theme.spacing(2),
+    margin: theme.spacing(5),
     "&:hover": {
       textUnderlinePosition: 'under',
       textDecorationColor: theme.palette.secondary.main,  
@@ -140,7 +137,6 @@ export default function Header(props: HeaderProps) {
           variant='h3'
           component={RouterLink}
           to='/'
-          color='secondary'
         >
           Pai
         </Link>
@@ -150,7 +146,6 @@ export default function Header(props: HeaderProps) {
           variant='h5'
           component={RouterLink}
           to='/'
-          color='secondary'
         >
           Home
         </Link>
@@ -159,7 +154,6 @@ export default function Header(props: HeaderProps) {
           variant='h5'
           href='https://github.com/paiqu'
           target="_blank"
-          color='secondary'
         >
           My Github
         </Link>
@@ -168,7 +162,6 @@ export default function Header(props: HeaderProps) {
           variant='h5'
           component={RouterLink}
           to='/about'
-          color='secondary'
         >
           About Me
         </Link>
@@ -177,7 +170,6 @@ export default function Header(props: HeaderProps) {
           variant='h5'
           component={RouterLink}
           to='/login'
-          color='secondary'
         >
           Login
         </Link>
@@ -228,7 +220,8 @@ export default function Header(props: HeaderProps) {
     <div className={classes.root}>
       <AppBar 
         className={classes.appBar} 
-        color='transparent'
+        // color='transparent'
+        position='absolute'
       >
         {mobileView ? displayMobile() : displayDesktop()}
       </AppBar>

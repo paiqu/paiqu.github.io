@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { createTheme, ThemeProvider } from '@material-ui/core/styles';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import ProtectedRoute from './components/route/ProtectedRoute';
 import { AuthProvider } from './context';
@@ -14,7 +14,7 @@ import LoginPage from './pages/LoginPage';
 import ProfilePage from './pages/ProfilePage';
 
 // https://material.io/resources/color/#!/?view.left=0&view.right=0&secondary.color=004cff&primary.color=FFB300
-const theme = createTheme({
+const theme = createMuiTheme({
   palette: {
     primary: {
       main: '#0d47a1',
