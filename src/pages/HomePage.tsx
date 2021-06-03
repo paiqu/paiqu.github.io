@@ -1,22 +1,21 @@
 import React, { useState } from 'react';
 
 // material ui
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles, Theme, useTheme } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import Toolbar from '@material-ui/core/Toolbar';
 
 // component
 import Header from '../components/Header';
+import FlipEmoji from '../components/animation/FlipEmoji';
 
 // animations
 // import { useSpring, animated } from 'react-spring';
 import { useSpring, a } from '@react-spring/web';
 
-const background = "https://images.unsplash.com/photo-1551554781-c46200ea959d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2100&q=80";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({
   root: {
     background: theme.palette.primary.main,
     minHeight: '100vh',
@@ -33,6 +32,9 @@ const useStyles = makeStyles((theme) => ({
   grid: {
     width: '90%',
     flexGrow: 1,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 }));
 
@@ -56,7 +58,7 @@ export default function HomePage(props: HomePageProps) {
     opacity: flipped ? 1 : 0,
     transform: `perspective(600px) rotateX(${flipped ? 180 : 0}deg)`,
     config: { 
-      mass: 5,
+      mass: 3,
       tension: 500,
       friction: 80
     },
@@ -72,59 +74,12 @@ export default function HomePage(props: HomePageProps) {
         container 
         spacing={1}
       >
-        <Grid item xs={12} 
-          style={{
-            display: "flex",
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}
+        <Grid 
+          item 
+          xs={5} 
+          lg={2}
         >
-          <div onClick={() => setFlipped(x => !x)}>
-            <a.div
-              style={{ 
-                opacity: opacity.to(o => 1 - o), 
-                transform 
-              }}
-            >
-              <Box
-                border={4}
-                color={theme.palette.secondary.main}
-                p={2}
-              >
-                <Typography variant="h3"
-                  style={{
-                    color: theme.palette.primary.contrastText,
-                    userSelect: "none",
-                  }}
-                >
-                  Generate Your Emoji
-                </Typography>
-              </Box>
-            </a.div>
-            <a.div
-              style={{
-                opacity,
-                transform,
-                rotateX: '180deg',
-              }}
-            >
-              <Box
-                border={4}
-                color={theme.palette.secondary.main}
-                p={2}
-              >
-                <Typography variant="h3"
-                  style={{
-                    color: theme.palette.primary.contrastText,
-                    userSelect: "none",
-                    textAlign: 'center',
-                  }}
-                >
-                  {EMOJI[Math.floor(Math.random() * EMOJI.length)]}
-                </Typography>
-              </Box>
-            </a.div>
-          </div>
+          <FlipEmoji />
         </Grid>
       </Grid>
     </div>
