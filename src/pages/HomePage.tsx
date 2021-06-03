@@ -5,6 +5,7 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
+import Toolbar from '@material-ui/core/Toolbar';
 
 // component
 import Header from '../components/Header';
@@ -18,21 +19,27 @@ const background = "https://images.unsplash.com/photo-1551554781-c46200ea959d?ix
 const useStyles = makeStyles((theme) => ({
   root: {
     background: theme.palette.primary.main,
-    // minHeight: '100vh',
-    // minWidth: '100%',
+    minHeight: '100vh',
+    minWidth: '100%',
     width: '100%',
     height: '100%',
     position: 'fixed',
-    // top: 0,
-    // left: 0,
+    top: 0,
+    left: 0,
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
   },
   grid: {
     width: '90%',
+    flexGrow: 1,
   },
 }));
+
+const EMOJI = [
+  '😀', '🤔', '🤨', '😮', '😌', '😖', 
+  '🤯', '😬', '🥺', '💩', '🤥', '🤒' 
+];
 
 interface HomePageProps {
 
@@ -55,19 +62,21 @@ export default function HomePage(props: HomePageProps) {
     },
   });
 
+
+
   return (
     <div className={classes.root}>
       <Header />
       <Grid 
         className={classes.grid} 
-        container spacing={1}
+        container 
+        spacing={1}
       >
         <Grid item xs={12} 
           style={{
             display: "flex",
             justifyContent: 'center',
             alignItems: 'center',
-            height: '80vh',
           }}
         >
           <div onClick={() => setFlipped(x => !x)}>
@@ -88,7 +97,7 @@ export default function HomePage(props: HomePageProps) {
                     userSelect: "none",
                   }}
                 >
-                  Coming soon
+                  Generate Your Emoji
                 </Typography>
               </Box>
             </a.div>
@@ -111,7 +120,7 @@ export default function HomePage(props: HomePageProps) {
                     textAlign: 'center',
                   }}
                 >
-                  😎 
+                  {EMOJI[Math.floor(Math.random() * EMOJI.length)]}
                 </Typography>
               </Box>
             </a.div>
