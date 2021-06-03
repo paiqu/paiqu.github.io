@@ -39,14 +39,18 @@ export default function AboutPage(props: AboutPageProps) {
   const theme = useTheme();
 
   const [users, setUsers] = useState<Array<User>>([]);
+  const [count, setCount] = useState(0);
 
   const handleClick = () => {
+    setCount(x => x + 1);
+
     db
       .collection('users')
       .withConverter(userConverter)
       .get()
       .then((querySnapshot: firebase.firestore.QuerySnapshot<User>) => {
         console.log(querySnapshot);
+        setUsers([]);
         querySnapshot.forEach((doc) => {
           const data = doc.data() as User;
           console.log(data);
@@ -83,6 +87,10 @@ export default function AboutPage(props: AboutPageProps) {
             {users.map((user) => {
               return <li>{`${user.first} ${user.last} email: ${user.email} birthday: ${moment(user.birthday).format("MMM Do YYYY")}`}</li>;
             })}
+
+          </Typography>
+          <Typography variant='body1' align='center'>
+            Load Times: {count}
           </Typography>
         </Grid>
       </Grid>
