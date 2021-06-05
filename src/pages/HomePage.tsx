@@ -7,7 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 
 // component
-import Header from '../components/Header';
+import Header from '../components/layout/Header';
 import FlipEmoji from '../components/animation/FlipEmoji';
 
 // animations
