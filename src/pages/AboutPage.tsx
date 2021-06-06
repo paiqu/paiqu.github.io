@@ -76,7 +76,6 @@ export default function AboutPage(props: AboutPageProps) {
     <div className={classes.root}>
       <Header />
       <Grid container className={classes.mainGrid}>
-        <Toolbar />
         <Grid item xs={12}>
           <Typography variant='h3' align='center'>
             About Me

@@ -21,6 +21,7 @@
     "@types/react-dom": "^17.0.5",
     "firebase": "^8.4.2",
     "firebase-admin": "^9.9.0",
+    "firebase-functions": "^3.14.1",
     "firebaseui": "^4.8.0",
     "formik": "^2.2.8",
     "moment": "^2.29.1",
@@ -39,7 +40,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "npm run build && firebase deploy"
   },
   "eslintConfig": {
     "extends": [

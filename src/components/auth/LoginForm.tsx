@@ -8,6 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import { Button } from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
 import Link from "@material-ui/core/Link";
+import Divider from '@material-ui/core/Divider';
 
 // Formik
 import { Formik, Form, FormikProps } from 'formik';
@@ -18,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    width: '100%',
   },
   form: {
     display: 'flex',
@@ -114,9 +116,25 @@ export default function LoginForm({
               <Button
                 type="submit"
                 variant="contained"
-                color="secondary"
+                color="primary"
               >
                 Log in
+              </Button>
+              <Divider 
+                style={{
+                  width:'100%',
+                  marginTop: '1rem',
+                  marginBottom: '1rem',
+                }}
+              />
+              <Button
+                variant='outlined'
+                color='secondary'
+                onClick={() => {
+                  history.push('/register')
+                }}
+              >
+                Register
               </Button>
             </Form>
           );

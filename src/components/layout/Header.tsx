@@ -52,7 +52,6 @@ export default function Header(props: HeaderProps) {
   const classes = useStyles();
 
   const textColor = theme.palette.primary.contrastText;
-  console.log(textColor);
 
   const [state, setState] = useState({
     mobileView: false,
@@ -220,11 +219,10 @@ export default function Header(props: HeaderProps) {
     <div className={classes.root}>
       <AppBar 
         className={classes.appBar} 
-        // color='transparent'
-        position='absolute'
       >
         {mobileView ? displayMobile() : displayDesktop()}
       </AppBar>
+      <Toolbar />
     </div>
   );
 }
