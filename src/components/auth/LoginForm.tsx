@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-  }
+  },
 }));
 
 interface LoginFormProps {
@@ -58,6 +58,9 @@ export default function LoginForm({
         onClick={() => {
           history.push('/');
         }}
+        style={{
+          flexGrow: 1,
+        }}
       >
         Back to home
       </Button>
@@ -85,7 +88,8 @@ export default function LoginForm({
             handleBlur,
             handleChange,
             isSubmitting,
-          } = props
+          } = props;
+          
           return (
             <Form className={classes.form}>
               <TextField

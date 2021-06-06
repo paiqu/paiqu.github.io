@@ -43,4 +43,4 @@ export const userConverter = {
       birthday: data.birthday.toDate(),
     };
   }
-}
+};

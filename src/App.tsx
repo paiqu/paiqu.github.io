@@ -12,6 +12,7 @@ import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import LoginPage from './pages/LoginPage';
 import ProfilePage from './pages/ProfilePage';
+import RegisterPage from './pages/RegisterPage';
 
 // https://material.io/resources/color/#!/?view.left=0&view.right=0&secondary.color=004cff&primary.color=FFB300
 const theme = createMuiTheme({
@@ -48,6 +49,13 @@ function App() {
               path="/login" 
               render={(props) => {
                 return <LoginPage {...props} setAuth={setAuth} />;
+              }}
+            />
+            <Route 
+              exact 
+              path="/register" 
+              render={(props) => {
+                return <RegisterPage {...props} setAuth={setAuth} />;
               }}
             />
             <ProtectedRoute
